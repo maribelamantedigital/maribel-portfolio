@@ -229,6 +229,44 @@
   footer{ background:#0e0e0e; color:#999; text-align:center; padding:34px 0; font-size:13.5px; }
   footer b{ color:#fff; }
 
+  /* MUSIC PLAYER */
+  .music-player{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    background:rgba(20,20,20,.96);
+    color:#fff;
+    border:2px solid var(--gold);
+    border-radius:999px;
+    padding:7px 12px 7px 7px;
+    box-shadow:0 10px 28px rgba(0,0,0,.18);
+  }
+  .music-player button{
+    width:40px;
+    height:40px;
+    border:0;
+    border-radius:50%;
+    background:var(--gold);
+    color:var(--black);
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .music-player button:hover{ background:var(--gold-dark); }
+  .music-player span{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.04em;
+    white-space:nowrap;
+  }
+
   @media (max-width: 900px){
     .navlinks{ display:none; position:absolute; top:64px; left:0; right:0; background:#fff; flex-direction:column; padding:20px 32px; gap:18px; border-bottom:1px solid var(--line); }
     .navlinks.open{ display:flex; }
@@ -248,6 +286,14 @@
 </style>
 </head>
 <body>
+
+
+<!-- BACKGROUND MUSIC -->
+<div class="music-player" aria-label="Background music controls">
+  <button id="musicBtn" type="button" aria-label="Play music" title="Play/Pause music">▶</button>
+  <span id="musicLabel">PLAY MUSIC</span>
+</div>
+<audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
 
 <header>
   <nav class="wrap">
@@ -660,6 +706,33 @@
   const links = document.getElementById('navlinks');
   toggle.addEventListener('click', () => links.classList.toggle('open'));
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // Background music: browsers may block autoplay, so visitors can start it with the button.
+  const audio = document.getElementById('bgMusic');
+  const musicBtn = document.getElementById('musicBtn');
+  const musicLabel = document.getElementById('musicLabel');
+
+  function updateMusic(){
+    const playing = !audio.paused;
+    musicBtn.textContent = playing ? '❚❚' : '▶';
+    musicBtn.setAttribute('aria-label', playing ? 'Pause music' : 'Play music');
+    musicLabel.textContent = playing ? 'MUSIC ON' : 'PLAY MUSIC';
+  }
+
+  musicBtn.addEventListener('click', async () => {
+    if (audio.paused) {
+      try { await audio.play(); } catch (e) {}
+    } else {
+      audio.pause();
+    }
+    updateMusic();
+  });
+
+  // Try autoplay; if the browser blocks it, the button remains available.
+  window.addEventListener('load', async () => {
+    try { await audio.play(); } catch (e) {}
+    updateMusic();
+  });
 </script>
 
 </body>
