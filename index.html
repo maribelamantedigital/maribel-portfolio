@@ -5,118 +5,138 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Maribel Amante — Graphic Designer, Social Media Manager and Virtual Assistant portfolio.">
 <title>Maribel Amante | Portfolio</title>
+
 <style>
-  :root{
-    --yellow:#ffbd00;
-    --black:#050505;
-    --white:#ffffff;
-    --shadow:0 12px 35px rgba(0,0,0,.20);
+*{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:#080808;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1000;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  padding:12px;
+  background:rgba(255,255,255,.97);
+  box-shadow:0 2px 14px rgba(0,0,0,.15);
+}
+
+nav a{
+  color:#000;
+  text-decoration:none;
+  font-weight:800;
+  font-size:14px;
+  padding:7px 10px;
+}
+
+nav a:hover,
+nav a.active{
+  color:#ffbd00;
+}
+
+main{
+  padding-top:50px;
+}
+
+.slide{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px 10px;
+  background:#080808;
+  scroll-margin-top:50px;
+}
+
+.slide img{
+  width:min(1650px,100%);
+  height:auto;
+  max-height:calc(100vh - 70px);
+  object-fit:contain;
+  display:block;
+}
+
+/* MUSIC PLAYER */
+.music{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:1100;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:#000;
+  border:2px solid #ffbd00;
+  border-radius:999px;
+  padding:7px 10px;
+  box-shadow:0 8px 25px rgba(0,0,0,.4);
+}
+
+.music button{
+  border:0;
+  background:#ffbd00;
+  color:#000;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  cursor:pointer;
+  font-weight:900;
+  font-size:16px;
+}
+
+.music span{
+  font-size:12px;
+  font-weight:800;
+  padding-right:5px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+  nav{
+    justify-content:flex-start;
+    overflow-x:auto;
+    gap:2px;
   }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    background:#080808;
-    color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
-  }
-  .topbar{
-    position:fixed;
-    top:0; left:0; right:0;
-    z-index:1000;
-    display:flex;
-    justify-content:center;
-    gap:8px;
-    padding:12px 10px;
-    background:rgba(255,255,255,.96);
-    box-shadow:0 2px 15px rgba(0,0,0,.12);
-    backdrop-filter:blur(8px);
-  }
-  .topbar a{
-    color:#000;
-    text-decoration:none;
-    font-weight:800;
-    font-size:13px;
-    padding:8px 10px;
-    border-radius:8px;
-    transition:.2s;
-  }
-  .topbar a:hover,.topbar a.active{color:var(--yellow)}
-  main{padding-top:52px}
-  .slide{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:28px 12px;
-    background:#0a0a0a;
-    scroll-margin-top:52px;
-  }
-  .slide img{
-    width:min(1600px,100%);
-    height:auto;
-    max-height:calc(100vh - 78px);
-    object-fit:contain;
-    display:block;
-    box-shadow:var(--shadow);
-    border-radius:4px;
-  }
-  .music{
-    position:fixed;
-    right:18px;
-    bottom:18px;
-    z-index:1100;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    background:#000;
-    border:2px solid var(--yellow);
-    border-radius:999px;
-    padding:8px 10px;
-    box-shadow:0 8px 25px rgba(0,0,0,.35);
-  }
-  .music button{
-    border:0;
-    background:var(--yellow);
-    color:#000;
-    width:38px;height:38px;
-    border-radius:50%;
-    cursor:pointer;
-    font-size:16px;
-    font-weight:900;
-  }
-  .music span{
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:.4px;
-    padding-right:5px;
-  }
-  .hint{
-    position:fixed;
-    left:18px;
-    bottom:18px;
-    z-index:900;
-    color:#fff;
-    background:rgba(0,0,0,.72);
-    border-left:4px solid var(--yellow);
-    padding:8px 12px;
-    border-radius:5px;
+
+  nav a{
     font-size:11px;
-    max-width:230px;
+    padding:7px 8px;
+    white-space:nowrap;
   }
-  @media(max-width:700px){
-    .topbar{gap:2px; overflow-x:auto; justify-content:flex-start}
-    .topbar a{font-size:11px;padding:7px 8px;white-space:nowrap}
-    main{padding-top:49px}
-    .slide{padding:12px 5px; min-height:auto}
-    .slide img{max-height:none}
-    .hint{display:none}
-    .music{right:10px;bottom:10px}
+
+  main{
+    padding-top:48px;
   }
+
+  .slide{
+    min-height:auto;
+    padding:10px 3px;
+  }
+
+  .slide img{
+    max-height:none;
+  }
+}
 </style>
 </head>
+
 <body>
-<nav class="topbar" aria-label="Portfolio navigation">
+
+<nav>
   <a href="#home">HOME</a>
   <a href="#about">ABOUT</a>
   <a href="#services">SERVICES</a>
@@ -124,81 +144,134 @@
   <a href="#contact">CONTACT</a>
 </nav>
 
-<div class="music" aria-label="Music player">
-  <button id="musicBtn" type="button" aria-label="Play music">▶</button>
+<!-- MUSIC -->
+<div class="music">
+  <button id="musicBtn" type="button">▶</button>
   <span id="musicText">PLAY MUSIC</span>
 </div>
+
 <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
 
 <main>
-  <section class="slide" id="home"><img src="assets/home.png" alt="Maribel Amante portfolio home"></section>
 
-  <section class="slide" id="about"><img src="assets/about-me.png" alt="About Maribel Amante"></section>
-  <section class="slide"><img src="assets/education.png" alt="Education"></section>
-  <section class="slide"><img src="assets/work-experience.png" alt="Work experience"></section>
-  <section class="slide"><img src="assets/why-hire-me.png" alt="Why hire me"></section>
-  <section class="slide"><img src="assets/personal-skills.png" alt="Personal skills"></section>
+<section class="slide" id="home">
+  <img src="home.png" alt="Maribel Amante portfolio home">
+</section>
 
-  <section class="slide" id="services"><img src="assets/my-services.png" alt="My services"></section>
+<section class="slide" id="about">
+  <img src="about-me.png" alt="About Maribel Amante">
+</section>
 
-  <section class="slide" id="work"><img src="assets/my-work.png" alt="My work"></section>
-  <section class="slide"><img src="assets/logo-designs.png" alt="Logo designs"></section>
-  <section class="slide"><img src="assets/google-form.png" alt="Google Form and Google Sheet integration project"></section>
-  <section class="slide"><img src="assets/project-2.png" alt="MJ Salon project"></section>
-  <section class="slide"><img src="assets/project-3.png" alt="Yuri's Milk Tea project"></section>
-  <section class="slide"><img src="assets/software-platform.png" alt="Software and platforms"></section>
+<section class="slide">
+  <img src="education.png" alt="Education">
+</section>
 
-  <section class="slide" id="contact"><img src="assets/contact.png" alt="Contact information"></section>
-  <section class="slide"><img src="assets/thank-you.png" alt="Thank you"></section>
+<section class="slide">
+  <img src="work-experience.png" alt="Work experience">
+</section>
+
+<section class="slide">
+  <img src="why-hire-me.png" alt="Why hire me">
+</section>
+
+<section class="slide">
+  <img src="personal-skills.png" alt="Personal skills">
+</section>
+
+<section class="slide" id="services">
+  <img src="my-services.png" alt="My services">
+</section>
+
+<section class="slide" id="work">
+  <img src="my-work.png" alt="My work">
+</section>
+
+<section class="slide">
+  <img src="logo-designs.png" alt="Logo designs">
+</section>
+
+<section class="slide">
+  <img src="google-form.png" alt="Google Form and Google Sheet integration">
+</section>
+
+<section class="slide">
+  <img src="project-2.png" alt="MJ Salon project">
+</section>
+
+<section class="slide">
+  <img src="project-3.png" alt="Yuri's Milk Tea project">
+</section>
+
+<section class="slide">
+  <img src="software-platform.png" alt="Software and platforms">
+</section>
+
+<section class="slide" id="contact">
+  <img src="contact.png" alt="Contact information">
+</section>
+
+<section class="slide">
+  <img src="thank-you.png" alt="Thank you">
+</section>
+
 </main>
 
 <script>
-  const audio = document.getElementById('bgMusic');
-  const btn = document.getElementById('musicBtn');
-  const label = document.getElementById('musicText');
 
-  function updateMusicUI(){
-    const playing = !audio.paused;
-    btn.textContent = playing ? '❚❚' : '▶';
-    label.textContent = playing ? 'MUSIC ON' : 'PLAY MUSIC';
+const audio = document.getElementById('bgMusic');
+const btn = document.getElementById('musicBtn');
+const label = document.getElementById('musicText');
+
+function updateMusic(){
+
+  const playing = !audio.paused;
+
+  btn.textContent = playing ? '❚❚' : '▶';
+
+  label.textContent = playing ? 'MUSIC ON' : 'PLAY MUSIC';
+}
+
+btn.addEventListener('click', async () => {
+
+  if(audio.paused){
+
+    try{
+      await audio.play();
+    }catch(e){}
+
+  }else{
+
+    audio.pause();
+
   }
 
-  btn.addEventListener('click', async () => {
-    try {
-      if (audio.paused) await audio.play();
-      else audio.pause();
-      updateMusicUI();
-    } catch(e) {
-      label.textContent = 'CLICK TO PLAY';
-    }
-  });
+  updateMusic();
+});
 
-  // Browsers commonly block autoplay with sound until the visitor interacts.
-  window.addEventListener('load', async () => {
-    try {
+window.addEventListener('load', async () => {
+
+  try{
+    await audio.play();
+  }catch(e){}
+
+  updateMusic();
+
+});
+
+document.addEventListener('click', async () => {
+
+  if(audio.paused){
+
+    try{
       await audio.play();
-    } catch(e) {}
-    updateMusicUI();
-  });
+      updateMusic();
+    }catch(e){}
 
-  // Start music after the first interaction if autoplay was blocked.
-  document.addEventListener('click', async (event) => {
-    if (event.target.closest('.music')) return;
-    if (audio.paused) {
-      try { await audio.play(); updateMusicUI(); } catch(e) {}
-    }
-  }, {once:true});
+  }
 
-  const links = [...document.querySelectorAll('.topbar a')];
-  const sections = [...document.querySelectorAll('main section[id]')];
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        links.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === '#'+entry.target.id));
-      }
-    });
-  }, {threshold:.55});
-  sections.forEach(s=>observer.observe(s));
+},{once:true});
+
 </script>
+
 </body>
 </html>
